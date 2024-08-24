@@ -1,5 +1,5 @@
 const express = require("express");
-const { savePushToken } = require("../controllers/pushToken");
+const { savePushToken } = require("../Controllers/pushToken");
 
 const router = express.Router();
 
