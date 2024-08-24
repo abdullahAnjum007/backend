@@ -32,6 +32,28 @@ app.get("/", (req, res) => {
   res.json({ message: "Connected successfully!" });
 });
 //
+//
+app.get("/api/v1/test-db", async (req, res) => {
+  try {
+    console.log("Testing database connection...");
+
+    // Connect to the database
+    await mongoose.connection.db.admin().ping();
+    res.status(200).json({
+      success: true,
+      message: "Database connection successful!",
+    });
+  } catch (error) {
+    console.error("Database connection error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Database connection failed.",
+      error: error.message,
+    });
+  }
+});
+
+//
 // Connect to MongoDB and start the server
 const PORT = process.env.PORT || 5000;
 const DB_URI = "mongodb://localhost:27017/complaints";
