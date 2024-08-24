@@ -28,12 +28,12 @@ app.use("/api/v1", exhibitRoutes);
 app.use("/api/v1", pushTokenRoutes);
 //
 // Root route
-app.get("/", (req, res) => {
-  res.json({ message: "Connected successfully!" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Connected successfully!" });
+// });
 //
 //
-app.get("/api/v1/test-db", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     console.log("Testing database connection...");
 
