@@ -8,7 +8,7 @@ const {
   getAllComplainsA,
   deleteComplain,
   updateComplain,
-} = require("../Controllers");
+} = require("../Controllers/complain");
 const { getIo } = require("../io"); // Adjust the path to correctly import io.js
 
 const router = express.Router();
