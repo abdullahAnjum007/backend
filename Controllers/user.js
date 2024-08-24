@@ -66,35 +66,35 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async (req, res) => {
-  try {
-    console.log("Starting to fetch users...");
+// exports.getAllUsers = async (req, res) => {
+//   try {
+//     console.log("Starting to fetch users...");
 
-    // Fetch users with non-null pushToken
-    const users = await User.find({ pushToken: { $ne: null } });
+//     // Fetch users with non-null pushToken
+//     const users = await User.find({ pushToken: { $ne: null } });
 
-    console.log(`Users retrieved: ${users.length}`);
+//     console.log(`Users retrieved: ${users.length}`);
 
-    // Send successful response
-    res.status(200).json({
-      success: true,
-      data: users,
-    });
-  } catch (error) {
-    // Log the error to identify the issue
-    console.error("Error occurred while fetching users:", error);
+//     // Send successful response
+//     res.status(200).json({
+//       success: true,
+//       data: users,
+//     });
+//   } catch (error) {
+//     // Log the error to identify the issue
+//     console.error("Error occurred while fetching users:", error);
 
-    // Send error response with detailed error information
-    res.status(500).json({
-      success: false,
-      message: "An error occurred while fetching users.",
-      error: {
-        message: error.message,
-        stack: error.stack, // Include stack trace for detailed debugging
-      },
-    });
-  }
-};
+//     // Send error response with detailed error information
+//     res.status(500).json({
+//       success: false,
+//       message: "An error occurred while fetching users.",
+//       error: {
+//         message: error.message,
+//         stack: error.stack, // Include stack trace for detailed debugging
+//       },
+//     });
+//   }
+// };
 
 exports.addUser = async (req, res) => {
   try {
