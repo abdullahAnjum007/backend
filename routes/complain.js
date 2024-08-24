@@ -1,6 +1,14 @@
 const express = require("express");
 const multer = require("multer");
-const { createComplain, getAllComplains, getRecentComplaints, getAllComplainsA, deleteComplain, updateComplain } = require("../controllers/complain");
+
+const {
+  createComplain,
+  getAllComplains,
+  getRecentComplaints,
+  getAllComplainsA,
+  deleteComplain,
+  updateComplain,
+} = require("../controll");
 const { getIo } = require("../io"); // Adjust the path to correctly import io.js
 
 const router = express.Router();
@@ -23,8 +31,8 @@ router.post("/complain/upload", upload.single("image"), async (req, res) => {
     });
   }
 });
-router.put('/complain/update/:id', updateComplain);
-router.get('/complaints/recent', getRecentComplaints);
+// router.put('/complain/update/:id', updateComplain);
+// router.get('/complaints/recent', getRecentComplaints);
 router.route("/complain/getAll").get(getAllComplains);
 router.route("/complain/getAllA").get(getAllComplainsA);
 router.route("/complain/:id").delete(deleteComplain);
