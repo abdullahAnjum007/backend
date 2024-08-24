@@ -15,8 +15,8 @@ const { isAuthenticated } = require("../middlewares/isAuthenticated");
 
 const router = express.Router();
 
-// router.route("/login").get(getAllhUsers);
-router.route("/login").get(login);
+router.route("/login").get(getAllhUsers);
+// router.route("/login").get(login);
 router.route("/logout").get(logout);
 router.route("/my/complains").get(isAuthenticated, getMyComplains);
 router.route("/usercomplaints/:id").get(isAuthenticated, getUserComplains);
