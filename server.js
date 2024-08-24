@@ -47,16 +47,5 @@ mongoose
   .catch((error) => {
     console.error("Database connection failed:", error);
   });
-mongoose.connection.on("connected", () => {
-  console.log("Mongoose connected to the database.");
-});
-
-mongoose.connection.on("error", (err) => {
-  console.error("Mongoose connection error:", err);
-});
-
-mongoose.connection.on("disconnected", () => {
-  console.log("Mongoose disconnected from the database.");
-});
 
 module.exports = server;
