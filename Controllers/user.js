@@ -43,32 +43,28 @@ exports.login = async (req, res) => {
   }
 };
 
-// exports.getAllUsers = async (req, res) => {
-//   // try {
-//   //   const users = await User.find({ pushToken: { $ne: null } });
-//   //   res.status(200).json({
-//   //     success: true,
-//   //     data: users,
-//   //   });
-//   // } catch (error) {
-//   //   res.status(500).json({
-//   //     success: false,
-//   //     message: error.message,
-//   //   });
-//   // }
-//   try {
-//     console.log("Simple test function executed successfully!");
-//     res.status(200).json({
-//       success: true,
-//       message: "Simple test function executed successfully!",
-//     });
-//   } catch (error) {
-//     res.status(500).json({
-//       success: false,
-//       message: error.message,
-//     });
-//   }
-// };
+exports.getAllUsers = async (req, res) => {
+  try {
+    const testUser = await User.findOne();
+    if (!testUser) {
+      return res.status(200).json({
+        success: true,
+        message: "Database connected, but no users found.",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      data: testUser,
+    });
+  } catch (error) {
+    console.error("Database connection error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Database connection failed.",
+      error: error.message,
+    });
+  }
+};
 
 exports.getAllUsers = async (req, res) => {
   try {
