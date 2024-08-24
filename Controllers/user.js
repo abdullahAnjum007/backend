@@ -51,7 +51,7 @@ exports.getAllUsers = async (req, res) => {
       data: users,
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(504).json({
       success: false,
       message: error.message,
     });
@@ -220,7 +220,9 @@ exports.getMyComplains = async (req, res) => {
     const complains = [];
 
     for (let i = 0; i < user.complains.length; i++) {
-      const complain = await Complain.findById(user.complains[i]).populate("complainer technician");
+      const complain = await Complain.findById(user.complains[i]).populate(
+        "complainer technician"
+      );
       complains.push(complain);
     }
 
@@ -243,7 +245,9 @@ exports.getUserComplains = async (req, res) => {
     const complains = [];
 
     for (let i = 0; i < user.complains.length; i++) {
-      const complain = await Complain.findById(user.complains[i]).populate("complainer technician");
+      const complain = await Complain.findById(user.complains[i]).populate(
+        "complainer technician"
+      );
       complains.push(complain);
     }
 
