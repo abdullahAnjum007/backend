@@ -9,7 +9,8 @@ const {
   removeUser,
   testUser,
   getAllUsers,
-} = require("../controllers/user");
+} = require("../Controllers/user");
+
 const { isAuthenticated } = require("../middlewares/isAuthenticated");
 
 const router = express.Router();
