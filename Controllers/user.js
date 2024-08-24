@@ -44,14 +44,26 @@ exports.login = async (req, res) => {
 };
 
 exports.getAllUsers = async (req, res) => {
+  // try {
+  //   const users = await User.find({ pushToken: { $ne: null } });
+  //   res.status(200).json({
+  //     success: true,
+  //     data: users,
+  //   });
+  // } catch (error) {
+  //   res.status(500).json({
+  //     success: false,
+  //     message: error.message,
+  //   });
+  // }
   try {
-    const users = await User.find({ pushToken: { $ne: null } });
+    console.log("Simple test function executed successfully!");
     res.status(200).json({
       success: true,
-      data: users,
+      message: "Simple test function executed successfully!",
     });
   } catch (error) {
-    res.status(504).json({
+    res.status(500).json({
       success: false,
       message: error.message,
     });
