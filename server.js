@@ -2,9 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const http = require('http');
-const cors = require('cors');
-const { initializeIo } = require('./io'); // Import the io.js file
+const http = require("http");
+const cors = require("cors");
+const { initializeIo } = require("./io"); // Import the io.js file
 const complainRoutes = require("./routes/complain");
 const userRoutes = require("./routes/user");
 const exhibitRoutes = require("./routes/exhibits");
@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/v1", complainRoutes);
-app.use("/api/v1", userRoutes);
+app.use("/api/v1/users", userRoutes);
 app.use("/api/v1", exhibitRoutes);
 app.use("/api/v1", pushTokenRoutes);
 
