@@ -33,7 +33,7 @@ app.use("/api/v1", pushTokenRoutes);
 // });
 //
 //
-app.get("/any", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     console.log("Testing database connection...");
 
