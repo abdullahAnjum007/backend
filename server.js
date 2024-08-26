@@ -31,33 +31,33 @@ app.use("/api/v1", exhibitRoutes);
 app.use("/api/v1", pushTokenRoutes);
 //
 // Root route
-// app.get("/", (req, res) => {
-//   res.json({ message: "Connected successfully!" });
-// });
+app.get("/", (req, res) => {
+  res.json({ message: "Connected successfully!" });
+});
 //
 //
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-app.get("/", async (req, res) => {
-  try {
-    console.log("Testing database connection...");
+// app.get("/", async (req, res) => {
+//   try {
+//     console.log("Testing database connection...");
 
-    // Connect to the database
-    await mongoose.connection.db.admin().ping();
-    res.status(200).json({
-      success: true,
-      message: "Database connection successfulllyy!",
-    });
-  } catch (error) {
-    console.error("Database connection error:", error);
-    res.status(500).json({
-      success: false,
-      message: "Database connection failed.",
-      error: error.message,
-    });
-  }
-});
+//     // Connect to the database
+//     await mongoose.connection.db.admin().ping();
+//     res.status(200).json({
+//       success: true,
+//       message: "Database connection successfulllyy!",
+//     });
+//   } catch (error) {
+//     console.error("Database connection error:", error);
+//     res.status(500).json({
+//       success: false,
+//       message: "Database connection failed.",
+//       error: error.message,
+//     });
+//   }
+// });
 
 //
 // const PORT = process.env.PORT || 5000;
