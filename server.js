@@ -9,6 +9,7 @@ const complainRoutes = require("./routes/complain");
 const userRoutes = require("./routes/user");
 const exhibitRoutes = require("./routes/exhibits");
 const pushTokenRoutes = require("./routes/pushToken");
+const connectDB = require("./config/database");
 
 dotenv.config({ path: "./config.env" });
 
@@ -42,7 +43,7 @@ app.get("/", async (req, res) => {
     await mongoose.connection.db.admin().ping();
     res.status(200).json({
       success: true,
-      message: "Database connection successful!",
+      message: "Database connection successfulllyy!",
     });
   } catch (error) {
     console.error("Database connection error:", error);
