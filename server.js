@@ -14,6 +14,7 @@ const connectDB = require("./config/database");
 dotenv.config({ path: "./config.env" });
 
 const app = express();
+const port = 3000;
 const server = http.createServer(app);
 
 // initializeIo(server); // Initialize Socket.IO with the server instance
@@ -35,6 +36,9 @@ app.use("/api/v1", pushTokenRoutes);
 // });
 //
 //
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
 app.get("/", async (req, res) => {
   try {
     console.log("Testing database connection...");
