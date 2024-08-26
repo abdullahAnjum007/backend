@@ -5,7 +5,10 @@ const crypto = require("crypto");
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("Received email:", email); // Debugging statement
+
     const user = await User.findOne({ email }).select("+password");
+    console.log("User found:", user); // Debugging statement
 
     if (!user) {
       return res.status(400).json({
