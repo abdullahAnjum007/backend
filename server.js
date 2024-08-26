@@ -54,9 +54,7 @@ app.get("/", async (req, res) => {
 });
 
 //
-// Connect to MongoDB and start the server
 const PORT = process.env.PORT || 5000;
-// const DB_URI = "mongodb://localhost:27017/complaints";
 const DB_URI =
   "mongodb+srv://abdullah:abdullah123@cluster01.jn9gy.mongodb.net/";
 
@@ -64,7 +62,7 @@ mongoose
   .connect(DB_URI)
   .then(() => {
     console.log("Connected to MongoDB successfully!");
-    app.listen(PORT, () => {
+    server.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })
