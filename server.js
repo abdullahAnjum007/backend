@@ -18,6 +18,7 @@ const server = http.createServer(app);
 // initializeIo(server); // Initialize Socket.IO with the server instance
 
 app.use(cors());
+connectDB();
 app.use(express.json());
 app.use(cookieParser());
 
@@ -54,20 +55,20 @@ app.get("/", async (req, res) => {
 });
 
 //
-const PORT = process.env.PORT || 5000;
-const DB_URI =
-  "mongodb+srv://abdullah:abdullah123@cluster01.jn9gy.mongodb.net/";
+// const PORT = process.env.PORT || 5000;
+// const DB_URI =
+//   "mongodb+srv://abdullah:abdullah123@cluster01.jn9gy.mongodb.net/";
 
-mongoose
-  .connect(DB_URI)
-  .then(() => {
-    console.log("Connected to MongoDB successfully!");
-    server.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.error("Database connection failed:", error);
-  });
+// mongoose
+//   .connect(DB_URI)
+//   .then(() => {
+//     console.log("Connected to MongoDB successfully!");
+//     server.listen(PORT, () => {
+//       console.log(`Server is running on port ${PORT}`);
+//     });
+//   })
+//   .catch((error) => {
+//     console.error("Database connection failed:", error);
+//   });
 
 module.exports = server;
