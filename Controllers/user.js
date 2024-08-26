@@ -45,22 +45,28 @@ exports.login = async (req, res) => {
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const testUser = await User.findOne();
-    if (!testUser) {
+    // Fetch all users from the database
+    const users = await User.find();
+
+    // Check if users were found
+    if (!users || users.length === 0) {
       return res.status(200).json({
         success: true,
-        message: "Database connected, but no users found.",
+        message: "No users found in the database.",
+        data: [],
       });
     }
+
+    // Return the users in the response
     res.status(200).json({
       success: true,
-      data: testUser,
+      data: users,
     });
   } catch (error) {
-    console.error("Database connection error:", error);
+    console.error("Error fetching users from the database:", error);
     res.status(500).json({
       success: false,
-      message: "Database connection failed.",
+      message: "An error occurred while fetching users.",
       error: error.message,
     });
   }
