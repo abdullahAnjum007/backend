@@ -25,14 +25,15 @@ router.post("/complain/upload", upload.single("image"), async (req, res) => {
     }
     res.status(result.success ? 201 : 500).json(result);
   } catch (error) {
+    console.error("Error in route handler:", error.message); // Log error
     res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 });
-router.put('/complain/update/:id', updateComplain);
-router.get('/complaints/recent', getRecentComplaints);
+router.put("/complain/update/:id", updateComplain);
+router.get("/complaints/recent", getRecentComplaints);
 router.route("/complain/getAll").get(getAllComplains);
 router.route("/complain/getAllA").get(getAllComplainsA);
 router.route("/complain/:id").delete(deleteComplain);
