@@ -17,7 +17,7 @@ const app = express();
 const port = 3000;
 const server = http.createServer(app);
 
-// initializeIo(server); // Initialize Socket.IO with the server instance
+initializeIo(server); // Initialize Socket.IO with the server instance
 
 app.use(cors());
 connectDB();
